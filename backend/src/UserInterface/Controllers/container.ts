@@ -6,19 +6,19 @@ import mainController from './mainController';
 let container: AwilixContainer;
 
 export function getControllerContainer() {
-  if (!container) {
-    container = createContainer();
-    container.loadModules([`${__dirname}/!(*.spec)!(*.test)*.{ts,js}`], {
-      formatName: 'camelCase',
-      resolverOptions: {
-        lifetime: Lifetime.SINGLETON,
-      },
-    });
-  }
-  return container;
+    if (!container) {
+        container = createContainer();
+        container.loadModules([`${__dirname}/!(*.spec)!(*.test)*.{ts,js}`], {
+            formatName: 'camelCase',
+            resolverOptions: {
+                lifetime: Lifetime.SINGLETON,
+            },
+        });
+    }
+    return container;
 }
 
 export interface ControllerDependencies {
-  articlesController: ReturnType<typeof articlesController>;
-  mainController: ReturnType<typeof mainController>;
+    articlesController: ReturnType<typeof articlesController>;
+    mainController: ReturnType<typeof mainController>;
 }

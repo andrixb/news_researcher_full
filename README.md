@@ -28,3 +28,4 @@ and
 `yarn cypress`
 
 
+`docker-compose up -d`

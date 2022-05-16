@@ -1,6 +1,8 @@
 import { Dependencies } from '../../container';
 import { Article } from '../../Domain/Entities/Article';
+import { apiInstance } from '../Api/apiClient';
 import { adaptResult } from '../databaseClient';
+import { INewsResearcherRequestPayloadResponse } from '../Interfaces/INewsResearcherRequestPayloadResponse';
 
 export default ({ databaseClient }: Dependencies) => {
     const collectionName = 'article';
@@ -14,6 +16,12 @@ export default ({ databaseClient }: Dependencies) => {
             const dbObj = await databaseClient.getCollection(collectionName).findOne({ id });
             return dbObj ? restore(dbObj) : null;
         },
+        // async listAllArticles() {
+        //     const { data } = await apiInstance.get<INewsResearcherRequestPayloadResponse>(
+        //         `${BASE_API_URL}/${API_EVERYTHING}?q=${keyword}`,
+        //         {}
+        //     );
+        // },
         async saveArticle(article) {
             const dbObj = adaptResult(
                 await databaseClient.getCollection(collectionName).findOneAndUpdate(
@@ -36,6 +44,8 @@ export default ({ databaseClient }: Dependencies) => {
 
 export interface ArticleRepository {
     listArticles(): Promise<Article[]>;
+
+    // listAllArticles(): Promise<Article[]>;
 
     findArticle(id: string): Promise<Article | null>;
 
