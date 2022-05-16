@@ -1,9 +1,10 @@
 import express from 'express';
 import * as http from 'http';
 import bodyParser from 'body-parser';
-import mainRouter from './UserInterface/Routers/mainRouter';
 import errorHandlingMiddleware from './Infrastructure/Middleware/errorHandlingMiddleware';
 import { ServerOptions } from './UserInterface/serverFactory';
+import articlesRouter from './UserInterface/Routers/articlesRouter';
+require('dotenv').config();
 
 export interface Server {
 	start(): Promise<void>;
@@ -14,7 +15,7 @@ function createServer({ port }): Server {
 const expressServer = express();
 let httpConnection: http.Server;
 expressServer.use(bodyParser.json({ limit: '50mb' }));
-expressServer.use(mainRouter);
+expressServer.use(articlesRouter);
 expressServer.use(errorHandlingMiddleware);
 
 return {
