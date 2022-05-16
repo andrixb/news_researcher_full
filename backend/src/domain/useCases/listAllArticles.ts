@@ -1,7 +1,7 @@
-import { Dependencies } from '../../container';
+import * as articleService from '../../Infrastructure/Services/articleService';
 
-export default function makeListAllArticles ({ articleService }: Partial<Dependencies>) {
-  return async function () {
-    return articleService.listArticles();
-  };
-};
+export default function listAllArticles({ keyword }: { keyword: string}) {
+    return async function ({ keyword }: { keyword: string}) {
+        return await articleService.listAllArticles({ keyword });
+    };
+}

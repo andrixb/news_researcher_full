@@ -1,10 +1,10 @@
 import express from 'express';
-import { Dependencies } from '../../container';
+
+import articlesRouter from './articlesRouter';
 import { handleRoute } from '../../Infrastructure/http';
 
-export default ({ mainController, articlesRouter }: Dependencies) => {
+export default () => {
     const router = express.Router();
-    router.get('/', handleRoute(mainController.index));
-    router.use('/articles', articlesRouter);
+    router.use('/articles', handleRoute(articlesRouter));
     return router;
 };

@@ -1,10 +1,9 @@
 import ExpressRedisCache from 'express-redis-cache';
 
 export const redisCacheMiddleware = () => {
-    const CACHE_UPDATE_TIME = 60;
-    
-    const cache = ExpressRedisCache({
-        expire: CACHE_UPDATE_TIME,
+    const CACHE_EXPIRE_TIME = 60;
+
+    return ExpressRedisCache({
+        expire: CACHE_EXPIRE_TIME,
     });
-    return cache;
 };

@@ -1,4 +1,3 @@
-import { Dependencies } from '../../container';
 import { HintedValues } from '../interfaces';
 import { ErrorRequestHandler } from 'express';
 
@@ -20,7 +19,7 @@ export class CustomError extends Error {
     }
 }
 
-export default ({}: Dependencies) => {
+export default () => {
     return function (e, req, res, next) {
         if (e instanceof CustomError || e.name === 'CustomError') {
             return res.status(e?.statusCode || 500).json({

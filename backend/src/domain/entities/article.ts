@@ -1,14 +1,24 @@
-import { Properties } from '../../Infrastructure/interfaces';
+import { IArticle } from '../../Infrastructure/Interfaces/IArticle';
+import { Source } from './Source';
 
-import { v4 as uuidv4 } from 'uuid';
-import { convertToString } from '../../Infrastructure/convertSafely';
+export default class Article {
+    source: Source;
+    title: string;
+    description: string;
+    url: string;
+    urlToImage: string;
+    publishedAt: string;
+    content: string;
+    author?: string;
 
-export class Article {
-  public readonly id: string;
-  public readonly name: string;
-
-  constructor({ id, name }: Properties<Article>) {
-    this.id = convertToString({ value: id, defaultValue: uuidv4() }) as string;
-    this.name = convertToString({ value: name }) as string;
-  }
+    constructor({ source, title, description, url, urlToImage, publishedAt, content, author }: IArticle) {
+        this.source = source;
+        this.title = title;
+        this.description = description;
+        this.url = url;
+        this.urlToImage = urlToImage;
+        this.publishedAt = publishedAt;
+        this.content = content;
+        this.author = author;
+    }
 }
