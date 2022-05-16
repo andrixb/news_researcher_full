@@ -1,17 +1,17 @@
 import { AwilixContainer, createContainer, Lifetime } from 'awilix';
-import { getInfrastructureContainer, InfrastructureDependencies } from './infrastructure/container';
-import { ServerFactory } from './user-interface/server-factory';
-import { getRouterContainer, RouterDependencies } from './user-interface/routers/container';
-import { getServiceContainer, ServiceDependencies } from './domain/services/container';
-import { getUseCaseContainer, UseCaseDependencies } from './domain/usescases/container';
-import { ControllerDependencies, getControllerContainer } from './user-interface/controllers/container';
+import { getServiceContainer, ServiceDependencies } from './Infrastructure/Services/container';
+import { getUseCaseContainer, UseCaseDependencies } from './Domain/useCases/container';
+import { getInfrastructureContainer, InfrastructureDependencies } from './Infrastructure/container';
+import { ControllerDependencies, getControllerContainer } from './UserInterface/Controllers/container';
+import { getRouterContainer, RouterDependencies } from './UserInterface/Routers/container';
+import { ServerFactory } from './UserInterface/serverFactory';
 
 let container: AwilixContainer;
 
 export function getMainContainer() {
 	if (!container) {
 		container = createContainer();
-		container.loadModules([`${__dirname}/user-interface/server-factory!(*.spec)!(*.test)*.{ts,js}`], {
+		container.loadModules([`${__dirname}/UserInterface/ServerFactory!(*.spec)!(*.test)*.{ts,js}`], {
 			formatName: 'camelCase',
 			resolverOptions: {
 				lifetime: Lifetime.SINGLETON,

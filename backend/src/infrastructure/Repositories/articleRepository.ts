@@ -1,6 +1,6 @@
 import { Dependencies } from '../../container';
-import { Article } from '../../domain/entities/article';
-import { adaptResult } from '../database-client';
+import { Article } from '../../Domain/Entities/Article';
+import { adaptResult } from '../databaseClient';
 
 export default ({ databaseClient }: Dependencies) => {
     const collectionName = 'article';

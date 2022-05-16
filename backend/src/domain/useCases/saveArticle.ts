@@ -1,5 +1,5 @@
 import { Dependencies } from '../../container';
-import { Article } from '../entities/article';
+import { Article } from '../Entities/Article';
 
 const saveArticle = ({ articleService }: Dependencies) => {
   return async function (article: Article) {

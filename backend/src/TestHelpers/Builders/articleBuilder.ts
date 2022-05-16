@@ -1,5 +1,5 @@
-import { Article } from '../../domain/entities/article';
-import { DeepWriteable, Properties } from '../../infrastructure/interfaces';
+import { Article } from '../../Domain/Entities/Article';
+import { DeepWriteable, Properties } from '../../Infrastructure/interfaces';
 
 export class ArticleBuilder {
   private data: DeepWriteable<Properties<Article>> = {

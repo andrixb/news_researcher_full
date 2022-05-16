@@ -1,6 +1,6 @@
 import { Dependencies } from '../../container';
-import { ObjectStub } from '../../test-helpers/object-stub';
-import makeListAllArticles from './list-all-articles';
+import { ObjectStub } from '../../TestHelpers/objectStub';
+import makeListAllArticles from './listAllArticles';
 
 describe('listAllArticles', () => {
   const stubs = {

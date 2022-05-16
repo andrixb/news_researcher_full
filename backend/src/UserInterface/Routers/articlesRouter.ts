@@ -1,9 +1,9 @@
 import express from 'express';
 import { Dependencies } from '../../container';
 import * as joi from 'joi';
-import { handleRoute } from '../../infrastructure/http';
-import { validateRequestPayload, ValidationTarget } from '../../infrastructure/middleware/validate-payload';
-import { Article } from '../../domain/entities/article';
+import { handleRoute } from '../../Infrastructure/http';
+import { validateRequestPayload, ValidationTarget } from '../../Infrastructure/Middleware/validatePayload';
+import { Article } from '../../Domain/Entities/Article';
 
 export default ({ articlesController }: Dependencies) => {
 		const router = express.Router();

@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import { Dependencies } from '../../container';
-import { Article } from '../../domain/entities/article';
+import { Article } from '../../Domain/Entities/Article';
 
 export default function makeArticlesController ({ listAllArticles, saveArticle }: Partial<Dependencies>) {
   return {

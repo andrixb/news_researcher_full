@@ -1,5 +1,5 @@
 import { AwilixContainer, createContainer, Lifetime } from 'awilix';
-import { ArticleRepository } from './article-repository';
+import { ArticleRepository } from './articleRepository';
 
 let container: AwilixContainer;
 

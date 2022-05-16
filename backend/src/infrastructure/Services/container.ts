@@ -1,11 +1,9 @@
 import { AwilixContainer, createContainer, Lifetime } from 'awilix';
-
-import articlesRouter from './articles-router';
-import mainRouter from './main-router';
+import { ArticleService } from './articleService';
 
 let container: AwilixContainer;
 
-export function getRouterContainer() {
+export function getServiceContainer() {
   if (!container) {
     container = createContainer();
     container.loadModules([`${__dirname}/!(*.spec)!(*.test)*.{ts,js}`], {
@@ -18,7 +16,6 @@ export function getRouterContainer() {
   return container;
 }
 
-export interface RouterDependencies {
-  articlesRouter: ReturnType<typeof articlesRouter>;
-  mainRouter: ReturnType<typeof mainRouter>;
-}
+export type ServiceDependencies = {
+  articleService: ArticleService;
+};

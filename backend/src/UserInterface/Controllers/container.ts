@@ -1,9 +1,11 @@
 import { AwilixContainer, createContainer, Lifetime } from 'awilix';
-import { ArticleService } from './article-service';
+
+import articlesController from './articlesController';
+import mainController from './mainController';
 
 let container: AwilixContainer;
 
-export function getServiceContainer() {
+export function getControllerContainer() {
   if (!container) {
     container = createContainer();
     container.loadModules([`${__dirname}/!(*.spec)!(*.test)*.{ts,js}`], {
@@ -16,6 +18,7 @@ export function getServiceContainer() {
   return container;
 }
 
-export type ServiceDependencies = {
-  articleService: ArticleService;
-};
+export interface ControllerDependencies {
+  articlesController: ReturnType<typeof articlesController>;
+  mainController: ReturnType<typeof mainController>;
+}

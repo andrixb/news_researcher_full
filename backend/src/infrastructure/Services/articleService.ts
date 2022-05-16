@@ -1,6 +1,6 @@
 import { Dependencies } from '../../container';
-import { Article } from '../entities/article';
-import { ResourceNotFoundError } from './resource-not-found';
+import { Article } from '../../Domain/Entities/Article';
+import { ResourceNotFoundError } from './resourceNotFound';
 
 export default function makeArticleService  ({ articleRepository }: Partial<Dependencies>)  {
   return {

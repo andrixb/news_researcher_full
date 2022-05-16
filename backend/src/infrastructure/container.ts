@@ -1,6 +1,6 @@
 import { AwilixContainer, createContainer, Lifetime } from 'awilix';
-import { getRepositoryContainer, RepositoryDependencies } from './repository/container';
-import { DatabaseClient } from './database-client';
+import { getRepositoryContainer, RepositoryDependencies } from './Repositories/container';
+import { DatabaseClient } from './databaseClient';
 
 import express from 'express';
 

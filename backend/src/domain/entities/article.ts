@@ -1,7 +1,7 @@
-import { Properties } from '../../infrastructure/interfaces';
+import { Properties } from '../../Infrastructure/interfaces';
 
 import { v4 as uuidv4 } from 'uuid';
-import { convertToString } from '../../infrastructure/convert-safely';
+import { convertToString } from '../../Infrastructure/convertSafely';
 
 export class Article {
   public readonly id: string;

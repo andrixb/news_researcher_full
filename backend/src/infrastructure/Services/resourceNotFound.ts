@@ -1,5 +1,5 @@
-import { BaseObject } from '../../infrastructure/interfaces';
-import { CustomError } from '../../infrastructure/middleware/error-handling-middleware';
+import { BaseObject } from '../interfaces';
+import { CustomError } from '../Middleware/errorHandlingMiddleware';
 
 export class ResourceNotFoundError extends CustomError {
 	static defaultCode = 'RESOURCE_NOT_FOUND';

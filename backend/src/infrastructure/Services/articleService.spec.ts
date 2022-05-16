@@ -1,8 +1,8 @@
 import { Dependencies } from '../../container';
-import { ArticleBuilder } from '../../test-helpers/builders/article-builder';
-import { ObjectStub } from '../../test-helpers/object-stub';
-import { Article } from '../entities/article';
-import makeArticleService from './article-service';
+import { ArticleBuilder } from '../../TestHelpers/Builders/articleBuilder';
+import { ObjectStub } from '../../TestHelpers/objectStub';
+import { Article } from '../../Domain/Entities/Article';
+import makeArticleService from './articleService';
 
 describe('saveArticle', () => {
 	let defaultInputArticle: Article;

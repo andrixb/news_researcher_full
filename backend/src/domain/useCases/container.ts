@@ -1,7 +1,7 @@
 import { AwilixContainer, createContainer, Lifetime } from 'awilix';
 
-import listAllArticles from './list-all-articles';
-import saveArticle from './save-article';
+import listAllArticles from './listAllArticles';
+import saveArticle from './saveArticle';
 
 let container: AwilixContainer;
 
