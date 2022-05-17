@@ -1,7 +1,12 @@
-import { ArticleType } from '../../Domain/Entities/Article';
+import { Source } from '../../Domain/Entities/Article';
 
 export interface INewsResearcherRequestPayloadResponse {
-    articles: ArticleType[];
-    status: string;
-    totalResult: number;
+    source: Source;
+    title: string;
+    description: string;
+    url: string;
+    urlToImage: string;
+    publishedAt: string;
+    content: string;
+    author?: string;
 }

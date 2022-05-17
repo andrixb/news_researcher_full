@@ -1,6 +1,6 @@
 import { makeStyles } from '@mui/styles';
 
-interface NewsResearcherHomeStylesTheme {
+interface NewsResearcherStylesTheme {
 	mixins: any;
 	zIndex: any;
 	transitions: any;
@@ -8,7 +8,7 @@ interface NewsResearcherHomeStylesTheme {
 	spacing: any;
 };
 
-export const useNewsResearcherHomeStyles = makeStyles((theme: NewsResearcherHomeStylesTheme) => ({
+export const useNewsResearcherStyles = makeStyles((theme: NewsResearcherStylesTheme) => ({
 	root: {
 		width: '100%',
 	},

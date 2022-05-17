@@ -3,9 +3,10 @@ import { INewsResearcherRequestPayloadResponse } from '../../Interfaces/INewsRes
 import { NewsResearcherResponse } from '../../Repositories/getNewsResearcher';
 
 export default function adaptNewsResearcherRequestPayload(
-    response: INewsResearcherRequestPayloadResponse
+    response: INewsResearcherRequestPayloadResponse[]
 ): NewsResearcherResponse {
+    console.log('response',  response)
     return {
-        articles: response.articles.map((article) => new Article({ ...article })),
+        articles: response.map((article) => new Article(article)),
     };
 }

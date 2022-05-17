@@ -16,12 +16,14 @@ export default function useGetNewsResearcher({ keyword }: useGetNewsResearcherPr
     const debouncedKeyword = useDebounce(keyword, 500);
 
     useEffect(() => {
-       (async () => { 
+        (async () => {
             try {
-                const newsResearcherFetch: NewsResearcherResponse = await fetchNewsResearcher({ keyword });
-    
-                if (newsResearcherFetch) {
-                    setArticles(newsResearcherFetch.articles);
+                if (keyword !== '') {
+                    const newsResearcherFetch: NewsResearcherResponse = await fetchNewsResearcher({ keyword });
+
+                    if (newsResearcherFetch) {
+                        setArticles(newsResearcherFetch.articles);
+                    }
                 }
             } catch (error) {
                 setArticlesError(error);

@@ -14,12 +14,11 @@ export type NewsResearcherResponse = {
 
 export default async function getNewsResearcher({ keyword }: getNewsResearcherProps): Promise<NewsResearcherResponse> {
     const BASE_API_URL = process.env['NEXT_PUBLIC_INT_BASE_URL'];
-    const API_EVERYTHING = 'articles/news-everything';
+    const API_EVERYTHING = 'articles/all';
 
-    const { data } = await apiInstance.get<INewsResearcherRequestPayloadResponse>(
+    const { data } = await apiInstance.get<INewsResearcherRequestPayloadResponse[]>(
         `${BASE_API_URL}/${API_EVERYTHING}?q=${keyword}`,
         {}
     );
-
     return adaptNewsResearcherRequestPayload(data); 
 }

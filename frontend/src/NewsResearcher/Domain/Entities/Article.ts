@@ -1,6 +1,6 @@
 import { Properties } from '../../../Shared/Infrastructure/Types/FunctionPropertiesType';
 
-type Source = {
+export type Source = {
     id: string;
     name: string;
 }

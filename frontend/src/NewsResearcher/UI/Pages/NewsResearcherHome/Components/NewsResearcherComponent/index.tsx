@@ -7,7 +7,6 @@ import { ArticleCardComponent } from '../ArticleCardComponent';
 export interface NewsResearcherComponentProps {}
 
 export default function NewsResearcherComponent({}: NewsResearcherComponentProps) {
-    // const classes = useVideosHomeComponentStyles();
     const [keyword, setKeyword] = useState<string>('');
     const { articles, articlesError } = useGetNewsEverything({ keyword });
 
