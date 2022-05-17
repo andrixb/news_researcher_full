@@ -2,7 +2,7 @@ import Article from '../../Domain/Entities/Article';
 import { apiInstance } from '../Api/apiClient';
 import { INewsEverythingRequestPayloadResponse } from '../Interfaces/INewsEverythingRequestPayloadResponse';
 
-interface NewsEverythingRequest {
+export interface NewsEverythingRequest {
     keyword: string;
 }
 
