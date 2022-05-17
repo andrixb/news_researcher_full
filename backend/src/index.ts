@@ -13,23 +13,9 @@ export interface Server {
 }
 
 function createServer({ port }): Server {
-	const corsWhitelist = [
-		`${process.env.ALLOWED_ORIGIN}`, 
-	];
-
     const expressServer = express();
-	
-    let httpConnection: http.Server;
 
-	expressServer.use(cors({ 
-		origin: (origin, cb) => { 
-			if (corsWhitelist.indexOf(origin) !== -1) {
-				cb(null, true)
-	  		} else {
-				cb(new Error())
-	  		} 
-		}
-	}))
+    let httpConnection: http.Server;
 
     expressServer.use(bodyParser.json({ limit: '50mb' }));
     expressServer.use('/articles', articlesRouter);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArticleType } from '../../../../../Domain/Entities/Article';
 import useGetNewsEverything from '../../../../../Infrastructure/Hooks/useGetNewsResearcher';
-import { Box, Grid, Typography, TextField } from '@mui/material';
+import { Box, Grid, Typography, TextField, Stack } from '@mui/material';
 import { ArticleCardComponent } from '../ArticleCardComponent';
 
 export interface NewsResearcherComponentProps {}
@@ -17,16 +17,19 @@ export default function NewsResearcherComponent({}: NewsResearcherComponentProps
 
     return (
         <Box component="div">
-            <Typography variant="h2">Search Articles</Typography>
-            <TextField
-                onChange={handleChange}
-                aria-label="Search field"
-                label="Search articles"
-                InputProps={{
-                    type: 'search',
-                }}
-            />
+            <Stack sx={{ marginBottom: 8 }}>
+                <Typography variant="h2">Search Articles</Typography>
+                {articlesError !== null ? <Typography variant="h4">Error when finding articles</Typography> : <></>}
 
+                <TextField
+                    onChange={handleChange}
+                    aria-label="Search field"
+                    label="Search articles"
+                    InputProps={{
+                        type: 'search',
+                    }}
+                />
+            </Stack>
             {articles ? (
                 <Grid container spacing={3}>
                     {articles.map((article: ArticleType, index: number) => (
@@ -38,8 +41,6 @@ export default function NewsResearcherComponent({}: NewsResearcherComponentProps
             ) : (
                 <></>
             )}
-
-            {articlesError ? <Typography>Articles Error</Typography> : <></>}
         </Box>
     );
 }
