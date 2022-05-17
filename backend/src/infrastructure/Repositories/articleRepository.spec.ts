@@ -1,10 +1,12 @@
-import axios from 'axios';
 import { listNewsEverything, NewsEverythingRequest } from './articleRepository';
 import { newsEverythingMock } from '../../../__tests__/__mocks__/news/newsEverything.mock';
+import axios from 'axios';
 
+jest.mock('axios');
 const axiosMock = axios as jest.Mocked<typeof axios>;
+
 describe('Articles Repository', () => {
-    const data: NewsEverythingRequest = {
+    const searchData: NewsEverythingRequest = {
         keyword: 'test'
     }
 
@@ -13,21 +15,11 @@ describe('Articles Repository', () => {
     });
 
     it('returns a list of news', async () => {
-        expect(axiosMock.get).toHaveBeenCalledTimes(1);
-        axiosMock.get.mockImplementationOnce(() => Promise.resolve(newsEverythingMock));
-        expect( await listNewsEverything(data)).toEqual(newsEverythingMock);
-    });
-
-    it('Should return empty data if response is rejected', async () => {
-        axiosMock.get.mockRejectedValue('Error');
-        const expectedResponse = {
-            data: [],
-        };
-        expect(await listNewsEverything(data)).toEqual(expectedResponse);
-    });
-
-    it('Should return empty data if response is rejected', async () => {
-        axiosMock.get.mockRejectedValue('Error');
-        expect(await listNewsEverything(data)).toBeUndefined();
+        axiosMock.get.mockResolvedValue({
+            data: newsEverythingMock,
+        });
+        
+        const results = await listNewsEverything(searchData);
+        expect(results).toEqual(newsEverythingMock.articles);
     });
 });
