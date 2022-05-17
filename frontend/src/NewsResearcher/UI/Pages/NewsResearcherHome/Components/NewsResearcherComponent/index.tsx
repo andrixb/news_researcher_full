@@ -3,10 +3,12 @@ import { ArticleType } from '../../../../../Domain/Entities/Article';
 import useGetNewsEverything from '../../../../../Infrastructure/Hooks/useGetNewsResearcher';
 import { Box, Grid, Typography, TextField, Stack } from '@mui/material';
 import { ArticleCardComponent } from '../ArticleCardComponent';
+import { useNewsResearcherStyles } from '../../Styles/NewsResearcher.style';
 
 export interface NewsResearcherComponentProps {}
 
 export default function NewsResearcherComponent({}: NewsResearcherComponentProps) {
+    const classes = useNewsResearcherStyles();
     const [keyword, setKeyword] = useState<string>('');
     const { articles, articlesError } = useGetNewsEverything({ keyword });
 
@@ -17,9 +19,9 @@ export default function NewsResearcherComponent({}: NewsResearcherComponentProps
 
     return (
         <Box component="div">
-            <Stack sx={{ marginBottom: 8 }}>
-                <Typography variant="h2">Search Articles</Typography>
-                {articlesError !== null ? <Typography variant="h4">Error when finding articles</Typography> : <></>}
+            <Stack className={classes.searchBarContainer}>
+                <Typography variant="h2" className={classes.titleHeader}>Search Articles</Typography>
+                {articlesError !== undefined ? <Typography variant="h4">Error when finding articles</Typography> : <></>}
 
                 <TextField
                     onChange={handleChange}
@@ -31,7 +33,7 @@ export default function NewsResearcherComponent({}: NewsResearcherComponentProps
                 />
             </Stack>
             {articles ? (
-                <Grid container spacing={3}>
+                <Grid container spacing={3} className={classes.articlesContainer}>
                     {articles.map((article: ArticleType, index: number) => (
                         <Grid item xs={8} key={index}>
                             <ArticleCardComponent article={article} />

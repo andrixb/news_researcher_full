@@ -12,11 +12,15 @@ export const useNewsResearcherStyles = makeStyles((theme: NewsResearcherStylesTh
 	root: {
 		width: '100%',
 	},
-	content: {
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		padding: 18,
-		overflow: 'auto',
+	searchBarContainer: {
+		marginBottom: 24
 	},
+	titleHeader: {
+		marginBottom: 24,
+	},
+	articlesContainer: {
+		display: 'flex',
+    	flexFlow: 'column',
+    	alignItems: 'center',
+	}
 }));

@@ -1,9 +1,7 @@
 import React from 'react';
 import NewsResearcherComponent from './Components/NewsResearcherComponent';
 
-interface NewsResearcherHomeProps {
-    classes?: any;
-}
+interface NewsResearcherHomeProps { }
 
 
 export default function NewsResearcherHome(props: NewsResearcherHomeProps) {

@@ -19,7 +19,7 @@ export default function useGetNewsResearcher({ keyword }: useGetNewsResearcherPr
         (async () => {
             try {
                 if (keyword !== '') {
-                    setArticlesError(null);
+                    setArticlesError(undefined);
                     
                     const newsResearcherFetch: NewsResearcherResponse = await fetchNewsResearcher({ keyword });
 
