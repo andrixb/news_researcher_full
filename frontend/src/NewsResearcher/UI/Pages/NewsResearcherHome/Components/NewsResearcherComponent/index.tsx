@@ -33,7 +33,7 @@ export default function NewsResearcherComponent({}: NewsResearcherComponentProps
                 />
             </Stack>
             {articles ? (
-                <Grid container spacing={3} className={classes.articlesContainer}>
+                <Grid container spacing={3} className={classes.articlesContainer} data-test="articles container">
                     {articles.map((article: ArticleType, index: number) => (
                         <Grid item xs={8} key={index}>
                             <ArticleCardComponent article={article} />
