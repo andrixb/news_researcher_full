@@ -7,7 +7,6 @@ interface NewsEverythingRequest {
 }
 
 export const listNewsEverything = async ({ keyword }: NewsEverythingRequest): Promise<Article[]> => {
-    console.log('process.env.BASE_API_URL', process.env.BASE_API_URL)
     const { data } = await apiInstance.get<INewsEverythingRequestPayloadResponse>(
         `${process.env.BASE_API_URL}/${process.env.API_URL_EVERYTHING}?q=${keyword}&apiKey=${process.env.API_KEY}`,
         {}
